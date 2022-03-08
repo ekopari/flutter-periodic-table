@@ -1422,7 +1422,13 @@ class _VertexPainter extends CustomPainter {
       var paint = Paint()
         ..style = ui.PaintingStyle.stroke
         ..shader = gradient.createShader(rect);
-      canvas.drawLine(globalOffset, Offset(globalOffset.dx + lineSize.width, globalOffset.dy + lineSize.height), paint);
+      Offset lineEnd;
+      if (lineSize.width > lineSize.height) {
+        lineEnd = Offset(globalOffset.dx + lineSize.width - 1, globalOffset.dy);
+      } else {
+        lineEnd = Offset(globalOffset.dx, globalOffset.dy + lineSize.height - 1);
+      }
+      canvas.drawLine(globalOffset, lineEnd, paint);
     }
   }
 
