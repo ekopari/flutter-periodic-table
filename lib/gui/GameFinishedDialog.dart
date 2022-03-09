@@ -117,7 +117,7 @@ class GameFinishedDialog {
     if (minutes == 0) {
       return secondsString + " seconds";
     } else {
-      return "$minutes:$seconds";
+      return "$minutes:$secondsString";
     }
   }
 }
